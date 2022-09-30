@@ -7,4 +7,4 @@ app.listen(port, () => {
   console.log(`Lionising on http://localhost:${port}`);
 });
 
-app.use(routes); //use the route's module as middleware.
+app.use('/api', routes); //use the route's module as middleware.
