@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npx tsc",
-    "start": "nodeman src/index.ts"
+    "start": "nodemon src/index.ts"
   },
   "repository": {
     "type": "git",
