@@ -4,7 +4,8 @@
   "description": "building an API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx tsc",
+    "start": "nodeman src/index.ts"
   },
   "repository": {
     "type": "git",
