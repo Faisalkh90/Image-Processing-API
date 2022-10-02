@@ -3,7 +3,7 @@ import images from './images';
 import loggers from './loggers';
 const routes = express.Router(); // create a router
 
-routes.get('/', loggers, (req, res) => {
+routes.get('/', loggers, (req, res): void => {
   res.send('Working from /api');
 });
 

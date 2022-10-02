@@ -3,7 +3,7 @@ import routes from './api/index';
 const app = express();
 const port = 3000;
 
-app.listen(port, () => {
+app.listen(port, (): void => {
   console.log(`Lionising on http://localhost:${port}`);
 });
 
