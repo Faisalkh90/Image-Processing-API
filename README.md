@@ -16,7 +16,7 @@ Make sure you installed the `npm`
 - `npm run start`. 
 - Entry point : http://localhost:3000/api
 - End point : http://localhost:3000/api/images
-- Access image processing functionality. Ex: http://localhost:3000/api/images/?filename=fjord&width=300&height=300
+- Access image processing functionality. Ex: http://localhost:3000/api/images/?filename=fjord&width=300&height=300 | **important: only change the width and height number**
 - For tasting the cases `npm run test`.
 
 
