@@ -5,10 +5,17 @@ import path from 'path';
 const images = express.Router(); //Create a router
 
 const resizeImage = 'image/resized-fjord.jpg';
-/**
- * To send data
- */
 
+//resize the image and wait until save resize image to new file
+async function resize(
+  fileName: string,
+  width: number,
+  height: number
+): Promise<void> {
+  const resize = await sharp(`image/${fileName}.jpg`)
+    .resize(width, height)
+    .toFile(resizeImage);
+}
 //function that will take the image and resized
 async function image_processing(req: express.Request, res: express.Response) {
   //Create an object and assign the queries
@@ -18,14 +25,17 @@ async function image_processing(req: express.Request, res: express.Response) {
   let height: number = Number(queryObj.height);
   let width: number = Number(queryObj.width);
   if (fileName !== 'fjord') {
-    return res.send('Input file is missing:fjord1. It should to be "fjord"');
+    return res.send(
+      `Input file is missing: "${fileName}". It should to be "fjord" For example:http://localhost:3000/api/images/?filename=fjord&width=250&height=250`
+    );
   }
-  //resize the image and wait until save resize image to new file
-  const resize = await sharp(`image/${fileName}.jpg`)
-    .resize(width, height)
-    .toFile(resizeImage);
+
+  const newImage = await resize(fileName, width, height);
   return res.sendFile(path.resolve(`${resizeImage}`)); //display the resized image to the browser
 }
+/**
+ * To send data
+ */
 images.get(
   '/images',
   loggers,
@@ -35,7 +45,6 @@ images.get(
       try {
         await image_processing(req, res);
       } catch (err) {
-        // console.log(err);
         if (err instanceof Error) {
           //Check for query parameters like filename, height and width before sending image for processing.
           return res.send(err.message);
@@ -53,4 +62,4 @@ images.get(
 );
 
 export default images; //export the router
-export { image_processing };
+export { image_processing, resize };
