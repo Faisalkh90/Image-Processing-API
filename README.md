@@ -13,7 +13,10 @@ Make sure you installed the `npm`
 - `npm --v`
 
 ## Scripts need to run: 
-- `npm run start`. Then enter http://localhost:3000/api/images 
+- `npm run start`. 
+- Entry point : http://localhost:3000/api
+- End point : http://localhost:3000/api/images
+- Access image processing functionality. Ex: http://localhost:3000/api/images/?filename=fjord&width=300&height=300
 - For tasting the cases `npm run test`.
 
 
