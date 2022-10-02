@@ -8,3 +8,4 @@ app.listen(port, () => {
 });
 
 app.use('/api', routes); //use the route's module as middleware.
+export default app;
