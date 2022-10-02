@@ -8,7 +8,7 @@
     "start": "nodemon src/index.ts",
     "test": "jasmine-ts",
     "lint": "eslint . --ext .ts",
-    "prettier": "eslint . --ext .ts --fix"
+    "prettier": "prettier --config .prettierrc **/*.ts --write"
   },
   "repository": {
     "type": "git",
