@@ -1,6 +1,6 @@
 import app from '../index';
 import request from 'supertest'; //testing HTTP
-import { image_processing } from '../api/images';
+import image_processing from '../processing-image';
 import express from 'express';
 
 describe('Testing the api/images endpoint', () => {
