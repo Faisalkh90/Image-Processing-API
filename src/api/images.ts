@@ -2,37 +2,11 @@ import express from 'express';
 import loggers from './loggers';
 import sharp from 'sharp';
 import path from 'path';
+import image_processing from '../processing-image';
 const images = express.Router(); //Create a router
 
 const resizeImage = 'image/resized-fjord.jpg';
 
-//resize the image and wait until save resize image to new file
-async function resize(
-  fileName: string,
-  width: number,
-  height: number
-): Promise<void> {
-  const resize = await sharp(`image/${fileName}.jpg`)
-    .resize(width, height)
-    .toFile(resizeImage);
-}
-//function that will take the image and resized
-async function image_processing(req: express.Request, res: express.Response) {
-  //Create an object and assign the queries
-
-  let queryObj = req.query;
-  const fileName: string = String(queryObj.filename);
-  let height: number = Number(queryObj.height);
-  let width: number = Number(queryObj.width);
-  if (fileName !== 'fjord') {
-    return res.send(
-      `Input file is missing: "${fileName}". It should to be "fjord" For example:http://localhost:3000/api/images/?filename=fjord&width=250&height=250`
-    );
-  }
-
-  const newImage = await resize(fileName, width, height);
-  return res.sendFile(path.resolve(`${resizeImage}`)); //display the resized image to the browser
-}
 /**
  * To send data
  */
@@ -47,6 +21,7 @@ images.get(
       } catch (err) {
         if (err instanceof Error) {
           //Check for query parameters like filename, height and width before sending image for processing.
+          console.log('here');
           return res.send(err.message);
         } else {
           //if the user doesn't provide query, the catch will handle it
@@ -62,4 +37,4 @@ images.get(
 );
 
 export default images; //export the router
-export { image_processing, resize };
+// export { image_processing, resize };
