@@ -2,7 +2,7 @@ import express from 'express';
 import loggers from './loggers';
 import sharp from 'sharp';
 import path from 'path';
-import image_processing from '../processing-image';
+import { image_processing } from '../processing-image';
 const images = express.Router(); //Create a router
 
 const resizeImage = path.join(process.cwd(), 'image/resized-fjord.jpg');
@@ -12,7 +12,10 @@ const resizeImage = path.join(process.cwd(), 'image/resized-fjord.jpg');
 images.get(
   '/images',
   loggers,
-  async (req: express.Request, res: express.Response) => {
+  async (
+    req: express.Request,
+    res: express.Response
+  ): Promise<express.Response | undefined> => {
     //Condition that the endpoint should be open with 200 'OK'
     if (res.statusCode === 200) {
       try {

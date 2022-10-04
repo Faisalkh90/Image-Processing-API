@@ -3,7 +3,7 @@ import path from 'path';
 import express from 'express';
 import sizeOf from 'image-size';
 import { promises as fsPromises } from 'fs';
-const resizeImage = path.join(process.cwd(), 'image/resized-fjord.jpg');
+const resizeImage = 'image/resized-fjord.jpg';
 
 //resize the image and wait until save resize image to new file
 async function resize(
@@ -11,18 +11,22 @@ async function resize(
   width: number,
   height: number
 ): Promise<void> {
-  const resize = await sharp(path.join(process.cwd(), `image/${fileName}.jpg`))
+  const resize = await sharp(`image/${fileName}.jpg`)
     .resize(width, height)
     .toFile(resizeImage);
 }
 //function that will take the image and resized
-async function image_processing(req: express.Request, res: express.Response) {
+async function image_processing(
+  req: express.Request,
+  res: express.Response
+): Promise<void | express.Response> {
   //Create an object and assign the queries
-  let queryObj = req.query;
+  let queryObj = await req.query;
   const fileName: string = String(queryObj.filename);
   let height: number = Number(queryObj.height);
   let width: number = Number(queryObj.width);
-  if (fileName !== 'fjord') {
+  let fileNameExist: boolean = await checkExist(fileName);
+  if (!fileNameExist) {
     return res.send(
       `Input file is missing: "${fileName}". It should to be "fjord" For example:http://localhost:3000/api/images/?filename=fjord&width=250&height=250`
     );
@@ -35,6 +39,7 @@ async function image_processing(req: express.Request, res: express.Response) {
    * If the file new, will call method resize and send it to browser
    */
   let checkFile: object | null;
+
   try {
     checkFile = await fsPromises.stat(resizeImage);
   } catch (e) {
@@ -58,4 +63,11 @@ async function image_processing(req: express.Request, res: express.Response) {
   }
 }
 
-export default image_processing;
+/**
+ * to check if file exist
+ * @param fileName
+ */
+async function checkExist(fileName: string): Promise<boolean> {
+  return fileName === 'fjord';
+}
+export { image_processing, resize, checkExist };
