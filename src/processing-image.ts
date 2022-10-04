@@ -3,7 +3,7 @@ import path from 'path';
 import express from 'express';
 import sizeOf from 'image-size';
 import { promises as fsPromises } from 'fs';
-const resizeImage = 'image/resized-fjord.jpg';
+const resizeImage = path.join(process.cwd(), 'image/resized-fjord.jpg');
 
 //resize the image and wait until save resize image to new file
 async function resize(
@@ -11,7 +11,7 @@ async function resize(
   width: number,
   height: number
 ): Promise<void> {
-  const resize = await sharp(`image/${fileName}.jpg`)
+  const resize = await sharp(path.join(process.cwd(), `image/${fileName}.jpg`))
     .resize(width, height)
     .toFile(resizeImage);
 }

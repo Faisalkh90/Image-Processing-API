@@ -5,8 +5,7 @@ import path from 'path';
 import image_processing from '../processing-image';
 const images = express.Router(); //Create a router
 
-const resizeImage = 'image/resized-fjord.jpg';
-
+const resizeImage = path.join(process.cwd(), 'image/resized-fjord.jpg');
 /**
  * To send data
  */
