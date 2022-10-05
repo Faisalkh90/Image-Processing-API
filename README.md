@@ -1,7 +1,7 @@
 # Image-Processing-API
 ***
 Building an API that can be used in two different ways.The first allows you to place images into your frontend with the size set via URL parameters.The second use case is as a library to serve properly scaled versions of your images to the front end to reduce page load size. Set up Node.js project from scratch, install all dependencies, and write all necessary configurations to make the dependencies work together.
-This repository for **Full Stack JavaScript Developer Nanodegree** from ***Udacity***
+This repository for **Full Stack JavaScript Developer Nanodegree** project 1 from ***Udacity***
 ***
 
 ##  Prerequisites installation
