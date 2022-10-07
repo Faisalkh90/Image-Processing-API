@@ -15,7 +15,7 @@ Make sure you installed the `npm`
 - `npm --v` (Check your version)
 
 ## Scripts need to run: 
-- `npm run start`. 
+- `npm run start` (for run the server).
 - Entry point : http://localhost:3000/api
 - End point : http://localhost:3000/api/images
 - Access image processing functionality. Ex: http://localhost:3000/api/images/?filename=fjord&width=300&height=300 | **important: only change the width and height number**
@@ -30,3 +30,15 @@ Make sure you installed the `npm`
 - [SuperTest](https://www.npmjs.com/package/supertest) For testing HTTP
 - [Prettier](https://www.npmjs.com/package/prettier) For code formatting
 - [ESLint](https://www.npmjs.com/package/eslint) for identifying and reporting on patterns
+
+
+## Tools
+- Use TypeScript to reduce typing errors
+- Write tests with Jasmine
+- Use Node.js and Express to build a server
+- Use third-party tools to do image processing
+
+## Skills 
+- Writing asynchronous code
+- Working with the file system to read files and store processed images
+- Building from scratch
