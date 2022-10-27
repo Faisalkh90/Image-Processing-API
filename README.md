@@ -1,8 +1,26 @@
 # Image-Processing-API
 ***
-Building an API that can be used in two different ways.The first allows you to place images into your frontend with the size set via URL parameters.The second use case is as a library to serve properly scaled versions of your images to the front end to reduce page load size. Set up Node.js project from scratch, install all dependencies, and write all necessary configurations to make the dependencies work together.
-This repository for **Full Stack JavaScript Developer Nanodegree** project 1 from ***Udacity***
+Building an API that can be used in two different ways.The first allows you to place images into your frontend with the size set via URL parameters.The second use case is as a library to serve properly scaled versions of your images to the front end to reduce page load size.
 ***
+
+## What I learned 
+- NodeJS (Set up Node.js project from scratch, install all dependencies)
+- Work with Node Package Manager (NPM)
+- Working with Typescript in professional environments (Writing asynchronous code)
+- Unit testing and test-driven development (TDD)
+- Writing and running tests
+- Working with Express (To create an API)
+- Adding Middleware
+- Using the File System Module
+
+ 
+## Tools
+- Use TypeScript to reduce typing errors
+- Write tests with Jasmine
+- Use Node.js and Express to build a server
+
+
+
 
 ##  Prerequisites installation
 You need to install the following: 
@@ -32,13 +50,4 @@ Make sure you installed the `npm`
 - [ESLint](https://www.npmjs.com/package/eslint) for identifying and reporting on patterns
 
 
-## Tools
-- Use TypeScript to reduce typing errors
-- Write tests with Jasmine
-- Use Node.js and Express to build a server
-- Use third-party tools to do image processing
 
-## Skills 
-- Writing asynchronous code
-- Working with the file system to read files and store processed images
-- Building from scratch
