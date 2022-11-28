@@ -1,6 +1,14 @@
 # Image Processing API
 ***
+
+## Project Summary
+
 Building an API that can be used in two different ways.The first allows you to place images into your frontend with the size set via URL parameters.The second use case is as a library to serve properly scaled versions of your images to the front end to reduce page load size.
+
+
+### API Overview 
+![api-digram-ima](https://user-images.githubusercontent.com/68514108/204344587-dc526da4-7632-4f2b-aff1-0674480c5f0a.png)
+
 ***
 
 ## What I learned 
